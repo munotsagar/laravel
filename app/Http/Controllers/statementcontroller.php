@@ -16,7 +16,11 @@ use Illuminate\Pagination\Paginator;
 
 class StatementController extends Controller
 {
-    //
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        //$this->middleware('auth', ['only' => 'create']);
+    }
 
     public function index()
     {

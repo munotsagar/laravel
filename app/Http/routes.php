@@ -24,10 +24,17 @@ Route::get('/', function () {
 Route::get('/home', 'homeController@index');
 
 
-Route::get('/xapi/statement', "statementcontroller@index");
+Route::get('/xapi/statement', "StatementController@index");
 
 Route::post('/xapi/statement', "StatementController@saveStatement");
 
 Route::post('/xapi/statements', "StatementController@saveStatement");
 
 Route::get('/test', "TestController@index");
+
+Route::get('/headerAuth', ['uses' => 'headerAuthonticationController@index','middleware'=>'basicAuthontication']);
+
+//Route::get('/headerAuth', "headerAuthonticationController@index");
+
+
+

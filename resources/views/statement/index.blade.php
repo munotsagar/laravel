@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-    <h1>Blog List</h1>
+    <h1>Statement List</h1>
     <table class="table">
         <thead>
         {{--<tr>
@@ -11,22 +11,28 @@
         </tr>--}}
         <tr>
             <th>Sr. No</th>
-            <th>Statement Name</th>
-            <th>Description</th>
-            <th>Action</th>
+            <th>Actor Name</th>
+            <th>Actor mbox</th>
+            <th>Verb Id</th>
+            <th>Verb Display</th>
+            <th>Object Id</th>
+            <th>Object Type</th>
+            {{--<th><Act></Act>ion</th>--}}
         </tr>
         </thead>
         <tbody>
         @set('i', $page)
         @foreach($statements as $statement)
             <tr class="success">
-                {{--{{ dd($blog) }}--}}
+                {{--{{  dd($statement->statement['actor']) }}--}}
                 <td>{{$i}}</td>
-                <td>{{--$blog->name--}}
-                   {{$statement->_id}}
-                </td>
-                <td>{{ $statement->updated_at }}</td>
-                <td>{{ $statement->created_at }}</td>
+                <td>{{ $statement->statement['actor']['name'] }}</td>
+                <td>{{ $statement->statement['actor']['mbox'] }}</td>
+                <td>{{ $statement->statement['verb']['id'] }}</td>
+                <td>{{ $statement->statement['verb']['display']['en-US'] }}</td>
+                <td>{{ $statement->statement['object']['id'] }}</td>
+                <td>{{ $statement->statement['object']['objectType'] }}</td>
+
                 {{--<td><a href="{{url('/blog/'.$blog->id.'/edit') }}"> Edit </a>/ <a href="javascript:checkDelete({{$blog->id}});
                 ">Delete</a></td>--}}
             </tr>
@@ -38,22 +44,5 @@
 @stop
 
 @section('footer')
-    {{--<script>
-        function checkDelete(id) {
-            if (confirm('Really delete?')) {
-                $.ajax({
-                    type: "DELETE",
-                    url: '/blog/' + id,
-                    dataType: "json",
-                    success: function(result) {
-                        if(result.response.error == false)
-                        {
-                            alert("Blog deleted successfully...");
-                            document.location.reload(true);
-                        }
-                    }
-                });
-            }
-        }
-    </script>--}}
+
 @stop

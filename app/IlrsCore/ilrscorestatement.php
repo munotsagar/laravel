@@ -18,6 +18,7 @@ class IlrsCoreStatement
         //echo "<pre>";
         $json = file_get_contents('php://input');
         $obj = json_decode($json);
+        //print_r($_SERVER['PHP_AUTH_USER']);exit;
         //$obj = json_decode(json_encode($json), true);
         //print_r($obj);exit;
         if(isset($obj))
